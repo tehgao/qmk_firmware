@@ -13,6 +13,10 @@ const keypos_t hand_swap_config[MATRIX_ROWS][MATRIX_COLS] = {
 
 void matrix_init_kb(void) {
 
+    #ifdef RGBLIGHT_ENABLE
+      rgblight_init();
+    #endif
+
     // Turn status LED on
     DDRE |= (1<<6);
     PORTE |= (1<<6);
